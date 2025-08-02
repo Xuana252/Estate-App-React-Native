@@ -1,11 +1,15 @@
+
+import { router } from 'expo-router'
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Button, Text } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const estate = () => {
   return (
-    <View>
+    <SafeAreaView>
+      <Button title='back' onPress={() => router.back()}/>
       <Text>estate</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 

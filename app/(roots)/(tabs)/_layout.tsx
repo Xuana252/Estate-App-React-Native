@@ -35,7 +35,6 @@ const _layout = () => {
         name="explore"
         options={{
           title: "Explore",
-
           tabBarIcon: ({ focused, color }) => (
             <>
               {focused ? (

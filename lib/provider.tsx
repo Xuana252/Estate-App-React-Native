@@ -35,16 +35,33 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
   const isLoggedIn = !!user;
 
   async function LogOut() {
-    try {
-      await Logout();
-      reset();
-    } catch (error) {
-      console.error("Logout error:", error);
-      Alert.alert(
-        "Logout Error",
-        error instanceof Error ? error.message : "An unknown error occurred"
-      );
-    }
+    Alert.alert(
+      "Log out confirmation", // Title of the alert
+      "Are you sure you want to log out? Your current session will be lost", // Message of the alert
+      [
+        {
+          text: "Cancel",
+        },
+        {
+          text: "Log out",
+          onPress: async () => {
+            try {
+              await Logout();
+              reset();
+            } catch (error) {
+              console.error("Logout error:", error);
+              Alert.alert(
+                "Logout Error",
+                error instanceof Error
+                  ? error.message
+                  : "An unknown error occurred"
+              );
+            }
+          },
+          style: "destructive", // Style for the log out button
+        },
+      ]
+    );
   }
 
   async function LogIn() {
@@ -68,7 +85,6 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
-  
   return (
     <context.Provider
       value={{ isLoggedIn, user, loading, refetch, LogOut, LogIn }}
