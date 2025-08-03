@@ -1,10 +1,10 @@
 import { ID } from "react-native-appwrite";
 import { config, databases } from "./appwrite";
 import {
-    agentImages,
-    galleryImages,
-    propertiesImages,
-    reviewImages,
+  agentImages,
+  galleryImages,
+  propertiesImages,
+  reviewImages,
 } from "./data";
 
 const COLLECTIONS = {
@@ -144,7 +144,7 @@ async function seed() {
       const assignedAgent = agents[Math.floor(Math.random() * agents.length)];
 
       const assignedReviews = getRandomSubset(reviews, 5, 7); // 5 to 7 reviews
-      const assignedGalleries = getRandomSubset(galleries, 3, 8); // 3 to 8 galleries
+      const assignedGalleries = getRandomSubset(galleries, 2, 3); // 3 to 8 galleries
 
       const selectedFacilities = facilities
         .sort(() => 0.5 - Math.random())

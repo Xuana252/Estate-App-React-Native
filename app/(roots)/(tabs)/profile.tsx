@@ -1,6 +1,7 @@
 import { settings } from "@/constants/data";
 import icons from "@/constants/icons";
 import { useAuth } from "@/lib/provider";
+import seed from "@/lib/seed";
 import React from "react";
 import {
   Image,
@@ -77,6 +78,13 @@ const profile = () => {
           {settings.slice(2).map((item, index) => (
             <SettingItems key={index} {...item} />
           ))}
+          <SettingItems
+            icon={icons.dumbell}
+            title="Seed"
+            onPress={seed}
+            textStyle="text-green-500"
+            showArrow={false}
+          />
         </View>
 
         <View className="flex-col mt-5 border-t pt-5 border-primary-200">

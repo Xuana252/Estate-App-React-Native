@@ -25,7 +25,9 @@ export default function RootLayout() {
   }
   return (
     <GlobalProvider>
-      <Stack screenOptions={{ headerShown: false }}>
+      <Stack screenOptions={{ headerShown: false, contentStyle:{
+        backgroundColor:"white",
+      } } }>
         <Stack.Screen name="(roots)" />
         <Stack.Screen name="auth" />
       </Stack>
